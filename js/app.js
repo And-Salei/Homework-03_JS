@@ -1,4 +1,4 @@
-let IPN = '3330613005'
+let IPN = '3261900854'
 IPN = IPN.split('').map (i => +i);
 let [a,b,c,d,e]=IPN;
 let arr = [a,b,c,d,e].join('');
@@ -20,8 +20,11 @@ if (IPN [8] % 2 == 0) {
 else {console.log (`Пол обладателя ИНН: Мужской`);}
 
 
-let X = IPN[0]*(-1) + IPN[1]*(5) + IPN[2]*(7) + IPN[3]*(9) + IPN[4]*(4) + IPN[5]*(6) + IPN[6]*(10) + IPN[7]*(5) + IPN[8]*(7);
-console.log(X)
-if (X/11 % 2 == 0) {
-    console.log ()
+let X = (IPN[0]*(-1) + IPN[1]*(5) + IPN[2]*(7) + IPN[3]*(9) + IPN[4]*(4) + IPN[5]*(6) + IPN[6]*(10) + IPN[7]*(5) + IPN[8]*(7))/11;
+X = X * 10;
+X = Math.round(+X).toString().split('');
+
+if (X[2] == IPN[9]) {
+    console.log (`ИНН существует`);
 }
+else {console.log (`Такого ИНН не существует!!!Это подделка!`)}
