@@ -1,18 +1,27 @@
-let IPN = '3261900854'
+let IPN = '3330613005'
 IPN = IPN.split('').map (i => +i);
 let [a,b,c,d,e]=IPN;
 let arr = [a,b,c,d,e].join('');
-console.log(+arr);
+let arrMS = (+arr)*60*60*1000*24;
+let dateCount = new Date (1899, 11, 31, 12, 0, 0);
+let dateCountMS = +dateCount;
+let dCountMS = (arrMS+dateCountMS);
+let DateBD = new Date(dCountMS);
+console.log (`Дата рождения: ${DateBD}`);
+
+let DNow = new Date ();
+let diff = DNow - DateBD;
+diff = Math.round (diff/1000/60/60/24/365);
+console.log(`Количество полных лет: ${diff}`);
 
 
-let dFirst = new Date (1899, 11, 31, 12, 0, 0);
-console.log (+dFirst);
-let dFirst1 = +dFirst/60/60/1000/24/365;
-console.log (dFirst1);
+if (IPN [8] % 2 == 0) {
+    console.log (`Пол обладателя ИНН: Женский`);}
+else {console.log (`Пол обладателя ИНН: Мужской`);}
 
 
-let dCount = (arr-dFirst1)/365;
-console.log (dCount);
-
-
-
+let X = IPN[0]*(-1) + IPN[1]*(5) + IPN[2]*(7) + IPN[3]*(9) + IPN[4]*(4) + IPN[5]*(6) + IPN[6]*(10) + IPN[7]*(5) + IPN[8]*(7);
+console.log(X)
+if (X/11 % 2 == 0) {
+    console.log ()
+}
